@@ -1,0 +1,19 @@
+<div *ngIf="settings.showProducts">
+  <h3 style="margin: 0;">Products</h3>
+  <div>
+    <div class="product-header">
+      <p class="name">Name</p>
+      <p class="price">Price</p>
+      <p class="type">Type</p>
+      <p class="type">Delete</p>
+    </div>
+    <div *ngFor="let product of products" class="product">
+      <p class="name">{{product.name}}</p>
+      <p class="price">{{product.price | price}}</p>
+      <div class="type">
+        <mat-icon *ngIf="product.vegetarian">filter_vintage</mat-icon>
+      </div>
+      <mat-icon class="type" (click)="deleteProduct(product.id)">delete</mat-icon>
+    </div>
+  </div>
+</div>

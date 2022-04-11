@@ -1,0 +1,10 @@
+<div style="padding: 10px; border: 1px solid black;">
+  <h3>Settings</h3>
+  <div class="setting">
+    <p>show products</p>
+    <input type="checkbox" [checked]="settings.showProducts" (change)="setShowProduct($event)">
+  </div>
+  <div>
+    <button (click)="addRandomPizza()">Add random Pizza</button>
+  </div>
+</div>

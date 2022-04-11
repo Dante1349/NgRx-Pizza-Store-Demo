@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {IAppState} from "./store/AppStateModel";
+import {LoadProductDataBeginAction} from "./store/products/ProductsStateActions";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'store-demo';
+export class AppComponent implements OnInit{
+  constructor(private store: Store<IAppState>) {
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(new LoadProductDataBeginAction())
+  }
+
 }
